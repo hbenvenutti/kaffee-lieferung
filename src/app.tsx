@@ -1,5 +1,6 @@
-import type { ReactElement } from './@types';
 import { Router } from './router';
+
+import type { ReactElement } from './@types';
 
 // ---------------------------------------------------------------------------------------------- //
 
