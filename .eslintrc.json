@@ -9,8 +9,8 @@
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react/recommended",
         "plugin:import/recommended",
-        "plugin:import/typescript",
-        "plugin:prettier/recommended"
+        "plugin:import/typescript"
+        // "plugin:prettier/recommended"
     ],
     "overrides": [
     ],
@@ -37,7 +37,8 @@
     ],
     "rules": {
     // ? Rules comentadas foram adicionadas ao Prettier por motivos de otimização ------------- ? //
-        "prettier/prettier": "error",
+  
+        "prettier/prettier": ["error", {"usePrettierrc": true}],
 
         // *** TYPESCRIPT ------------------------------------------------------------------- *** //
         "@typescript-eslint/no-unused-vars": ["error", {
@@ -66,7 +67,7 @@
 
         // "semi": ["error","always"],
         "semi-spacing": ["error", {"before": false, "after": false}],
-        "comma-dangle": ["error", "never"],
+        // "comma-dangle": ["error", "never"],
         "comma-spacing": ["error", {"before": false, "after": true}],
         "comma-style": ["error"],
 

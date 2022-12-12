@@ -1,0 +1,13 @@
+  singleQuote: true
+  tabWidth: 2
+  useTabs: false
+  printWidth: 100
+  arrowParens: 'avoid'
+  semi: true
+  trailingComma: "none"
+  bracketSpacing: true
+  bracketSameLine: false
+  endOfLine: "lf"
+  # singleAttributePerLine: false
+  jsxSingleQuote: false
+
