@@ -5,9 +5,10 @@ module.exports = {
   printWidth: 100,
   arrowParens: 'avoid',
   semi: true,
-  trailingComma: 'all',
+  trailingComma: 'es5',
   bracketSpacing: true,
   bracketSameLine: false,
   endOfLine: "lf",
-  singleAttributePerLine: true
+  // singleAttributePerLine: true,
+  jsxSingleQuote: false
 }

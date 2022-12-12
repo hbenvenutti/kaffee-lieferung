@@ -6,11 +6,11 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react/recommended",
-        "plugin:prettier/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:prettier/recommended"
     ],
     "overrides": [
     ],
@@ -36,8 +36,10 @@
         "prettier"
     ],
     "rules": {
+    // ? Rules comentadas foram adicionadas ao Prettier por motivos de otimização ------------- ? //
         "prettier/prettier": "error",
 
+        // *** TYPESCRIPT ------------------------------------------------------------------- *** //
         "@typescript-eslint/no-unused-vars": ["error", {
             "argsIgnorePattern": "_"
         }],
@@ -45,7 +47,12 @@
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/explicit-function-return-type": "error",
         
-        // ? Rules comentadas foram adicionadas ao Prettier por motivos de otimização ? //
+        // *** IMPORT
+        // "import/default": 0,
+        "import/order": ["error", {"newlines-between": "always"}],
+        "import/newline-after-import": "error",
+
+        // *** Regular ESLINT
         // "indent": ["error", 2],
         // "linebreak-style": ["error","unix"],
         // "quotes": ["error","single"],
@@ -95,7 +102,10 @@
         "nonblock-statement-body-position": ["error", "beside"],
         "space-unary-ops": [2, {"words": true, "nonwords": false}],
         "wrap-regex": 2,
+        
+        // *** REACT
 
+        "react/react-in-jsx-scope": 0,
         "react/no-array-index-key": "error",
         "react/jsx-tag-spacing": ["error", {
             "closingSlash": "never",
@@ -104,7 +114,7 @@
             "beforeClosing": "never"
           }],
         "react/jsx-pascal-case": "error",
-        "react/jsx-one-expression-per-line": "error",
+        // "react/jsx-one-expression-per-line": "error",
         "react/jsx-no-useless-fragment": "error",
         "react/jsx-indent-props": ["error", 2],
         "react/jsx-indent": ["error", 2],
