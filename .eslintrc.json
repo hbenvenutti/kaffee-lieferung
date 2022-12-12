@@ -46,6 +46,7 @@
         "@typescript-eslint/array-type": ["error", {"default": "array"}],
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
         
         // *** IMPORT
         // "import/default": 0,
