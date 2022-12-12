@@ -50,7 +50,10 @@
         
         // *** IMPORT
         // "import/default": 0,
-        "import/order": ["error", {"newlines-between": "always"}],
+        "import/order": ["error", {
+            "groups": ["builtin", "external", "parent", "sibling", "index", "type"],
+            "newlines-between": "always"
+        }],
         "import/newline-after-import": "error",
 
         // *** Regular ESLINT
