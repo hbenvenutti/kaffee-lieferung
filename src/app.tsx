@@ -11,6 +11,5 @@ export const App = (): ReactElement => (
   <>
     <ThemeProvider theme={defaultTheme} />
     <Router />
-    <h1>Café</h1>
   </>
 );
