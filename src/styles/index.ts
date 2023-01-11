@@ -21,10 +21,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     color: ${(props): Color => props.theme['text']};
     background: ${(props): Color => props.theme['background']};
+    border: none;
   }
 
   h1, h2, h3, h4, h5 {
     font-family: 'Baloo 2', sans-serif;
+  }
+
+  h1 {
+    color: ${(props): Color => props.theme['title']}
+  }
+
+  h2, h3 {
+    color: ${(props): Color => props.theme['subtitle']}
   }
 
   body, input, textarea, button {
