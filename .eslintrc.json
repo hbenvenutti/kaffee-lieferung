@@ -46,11 +46,10 @@
         }],
         "@typescript-eslint/array-type": ["error", {"default": "array"}],
         "@typescript-eslint/consistent-type-exports": "error",
-        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-function-return-type": ["error", {"allowExpressions": true}],
         "@typescript-eslint/consistent-type-imports": "error",
         
         // *** IMPORT
-        // "import/default": 0,
         "import/order": ["error", {
             "groups": ["builtin", "external", "parent", "sibling", "index", "type"],
             "newlines-between": "always"
@@ -58,21 +57,14 @@
         "import/newline-after-import": "error",
 
         // *** Regular ESLINT
-        // "indent": ["error", 2],
-        // "linebreak-style": ["error","unix"],
-        // "quotes": ["error","single"],
 
-        // "arrow-parens": ["error", "as-needed"],
         "arrow-spacing": ["error", {"before": true, "after": true}],
 
-        // "semi": ["error","always"],
         "semi-spacing": ["error", {"before": false, "after": false}],
-        // "comma-dangle": ["error", "never"],
         "comma-spacing": ["error", {"before": false, "after": true}],
         "comma-style": ["error"],
 
         "array-bracket-newline": ["error", "consistent"],
-        // "array-bracket-spacing": ["error", "always"],
         "array-element-newline": ["error", "consistent"],
 
         "block-spacing": ["error", "always"],
@@ -85,10 +77,6 @@
             "prev": "*",
             "next": "return"
         }],
-
-        // "object-curly-spacing": ["error", "always"],
-        // "object-curly-newline": ["error", {"minProperties": 3}],
-
 
         "rest-spread-spacing": ["error", "never"],
 
@@ -119,7 +107,6 @@
             "beforeClosing": "never"
           }],
         "react/jsx-pascal-case": "error",
-        // "react/jsx-one-expression-per-line": "error",
         "react/jsx-no-useless-fragment": "error",
         "react/jsx-indent-props": ["error", 2],
         "react/jsx-indent": ["error", 2],
