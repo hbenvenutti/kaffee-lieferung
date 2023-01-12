@@ -41,4 +41,12 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
   }
+
+  body {
+    padding: 0 10rem;
+  }
+
+  a, button {
+    cursor: pointer;
+  }
 `;
