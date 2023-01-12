@@ -11,7 +11,7 @@ export const Header = (): ReactElement => {
   // const [cartCounter, setCartCounter] = useState<number>(0);
 
   // *** ---- Variables --------------------------------------------------------------------- *** //
-  const cartCounter = 0; // ? Temporary
+  const cartCounter = 2; // ? Temporary
   const showCartCounter = cartCounter > 0 ? true : false;
 
   // *** ---- TSX --------------------------------------------------------------------------- *** //
