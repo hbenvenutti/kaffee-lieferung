@@ -1,5 +1,8 @@
+import { Intro } from './components/intro';
+
 import type { ReactElement } from '../../@types';
 
-export const Home = (): ReactElement => {
-  return <h1>Encontre o café perfeito para qualquer hora do dia</h1>;
-};
+// ---------------------------------------------------------------------------------------------- //
+
+// eslint-disable-next-line prettier/prettier
+export const Home = (): ReactElement => <Intro />
