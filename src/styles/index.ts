@@ -6,12 +6,16 @@ import type { Color } from '../@types/styles';
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    @media (max-width: 1080px) {
+    @media (max-width: 720px) {
       font-size: 93.75%;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 540px) {
       font-size: 87.5%;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 60%;
     }
   }
 
@@ -29,7 +33,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    color: ${(props): Color => props.theme['title']}
+    color: ${(props): Color => props.theme['title']};
+    font-size: 3rem;
+    line-height: 3.9rem;
   }
 
   h2, h3 {
@@ -40,10 +46,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
-  }
-
-  body {
-    padding: 0 10rem;
   }
 
   a, button {
