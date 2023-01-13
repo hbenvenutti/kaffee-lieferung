@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import background from '../../../../assets/background.svg';
 
+import type { Color } from '../../../../@types/styles';
+
 // ---------------------------------------------------------------------------------------------- //
 
 export const Container = styled.div`
@@ -11,6 +13,12 @@ export const Container = styled.div`
 
   * {
     background: transparent;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .content,
@@ -50,4 +58,66 @@ export const Content = styled.div`
   p {
     font-size: 1.25rem;
   }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4.125rem;
+  }
+`;
+
+// *** ---- List elements ------------------------------------------------------------------- *** //
+
+export const List = styled.div`
+  display: grid;
+  grid-gap: 20px 40px;
+  grid-template-columns: 1fr 1fr;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+`;
+
+// ---------------------------------------------------------------------------------------------- //
+
+const baseSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50px;
+  width: 2rem;
+  height: 2rem;
+
+  svg {
+    fill: ${(props): Color => props.theme['confirmation-button-text']};
+    width: 1rem;
+    height: auto;
+  }
+`;
+
+// ---------------------------------------------------------------------------------------------- //
+
+export const CartSpan = styled(baseSpan)`
+  background: ${(props): Color => props.theme['brand-secondary-3']};
+`;
+
+// ---------------------------------------------------------------------------------------------- //
+
+export const PackageSpan = styled(baseSpan)`
+  background: ${(props): Color => props.theme['title']};
+`;
+
+// ---------------------------------------------------------------------------------------------- //
+
+export const TimerSpan = styled(baseSpan)`
+  background: ${(props): Color => props.theme['brand-secondary-2']};
+`;
+
+// ---------------------------------------------------------------------------------------------- //
+
+export const CoffeeSpan = styled(baseSpan)`
+  background: ${(props): Color => props.theme['brand-primary-2']};
 `;
