@@ -1,3 +1,5 @@
+import { CoffeeType } from '../../../../shared/providers/coffee/@types/enums';
+
 import { Container, FilterButton } from './styles';
 
 import type { ReactElement } from '../../../../@types';
@@ -11,11 +13,11 @@ export const CoffeeList = (): ReactElement => {
         <h2>Nossos Cafés</h2>
 
         <div className="filters">
-          <FilterButton isActive>TRADICIONAL</FilterButton>
-          <FilterButton>ESPECIAL</FilterButton>
-          <FilterButton>COM LEITE</FilterButton>
-          <FilterButton>ALCOÓLICO</FilterButton>
-          <FilterButton>GELADO</FilterButton>
+          <FilterButton isActive>{CoffeeType.traditional}</FilterButton>
+          <FilterButton>{CoffeeType.special}</FilterButton>
+          <FilterButton>{CoffeeType.latte}</FilterButton>
+          <FilterButton>{CoffeeType.alcohol}</FilterButton>
+          <FilterButton>{CoffeeType.cold}</FilterButton>
         </div>
       </div>
     </Container>
