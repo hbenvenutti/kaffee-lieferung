@@ -2,7 +2,7 @@ import logo from '../../../assets/logo.svg';
 
 import { CartSVG, Container, Counter, LocationSVG } from './styles';
 
-import type { ReactElement } from 'react';
+import type { ReactElement } from '../../../@types';
 
 // ---------------------------------------------------------------------------------------------- //
 

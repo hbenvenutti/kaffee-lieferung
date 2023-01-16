@@ -4,7 +4,7 @@ import coffeeImage from '../../../../assets/coffee.svg';
 
 import { CartSpan, CoffeeSpan, Container, Content, List, PackageSpan, TimerSpan } from './styles';
 
-import type { ReactElement } from 'react';
+import type { ReactElement } from '../../../../@types';
 
 // ---------------------------------------------------------------------------------------------- //
 
