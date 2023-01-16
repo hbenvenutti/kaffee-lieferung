@@ -6,7 +6,7 @@ import type { defaultTheme } from '../../styles/themes/default-theme';
 
 // ---------------------------------------------------------------------------------------------- //
 
-export type Color = string;
+type Color = string;
 
 // *** ---- Styled Components override ------------------------------------------------------ *** //
 
