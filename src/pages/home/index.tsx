@@ -1,8 +1,13 @@
 import { Intro } from './components/intro';
+import { CoffeeList } from './components/coffee-list';
 
 import type { ReactElement } from '../../@types';
 
 // ---------------------------------------------------------------------------------------------- //
 
-// eslint-disable-next-line prettier/prettier
-export const Home = (): ReactElement => <Intro />
+export const Home = (): ReactElement => (
+  <>
+    <Intro />
+    <CoffeeList />
+  </>
+);
