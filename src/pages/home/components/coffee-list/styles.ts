@@ -10,6 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   padding: 2rem 10rem;
+  gap: 3.375rem;
 
   .title {
     display: flex;
@@ -25,6 +26,13 @@ export const Container = styled.div`
   .filters {
     display: flex;
     gap: 0.5rem;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 2.5rem;
+    column-gap: 2rem;
   }
 `;
 
