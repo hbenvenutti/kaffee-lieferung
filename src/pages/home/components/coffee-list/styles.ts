@@ -39,14 +39,12 @@ export const Container = styled.div`
 // ---------------------------------------------------------------------------------------------- //
 
 export const FilterButton = styled.button<FilterButtonProps>`
-  border: solid ${(props): Color => props.theme['brand-secondary-2']} 1px;
   border-radius: 100px;
 
   background: ${(props): Background =>
-    props.isActive ? props.theme['brand-secondary-2'] : 'transparent'};
+    props.isActive ? props.theme['brand-secondary-1'] : 'transparent'};
 
-  color: ${(props): Color =>
-    props.isActive ? props.theme['confirmation-button-text'] : props.theme['brand-secondary-3']};
+  color: ${(props): Color => props.theme['brand-secondary-3']};
 
   font-weight: 700;
   font-size: 0.625rem;
