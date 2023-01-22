@@ -54,7 +54,6 @@ export const Container = styled.header`
 export const LocationSVG = styled(MapPin)`
   fill: ${(props): Color => props.theme['brand-primary-3']};
 
-  background-color: transparent;
   width: 1.375rem;
   height: auto;
 `;
@@ -64,7 +63,6 @@ export const LocationSVG = styled(MapPin)`
 export const CartSVG = styled(ShoppingCart)`
   fill: ${(props): Color => props.theme['brand-secondary-3']};
 
-  background-color: transparent;
   width: 1.375rem;
   height: auto;
 `;

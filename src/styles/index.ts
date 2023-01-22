@@ -24,8 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     color: ${(props): Color => props.theme['text']};
-    background: ${(props): Color => props.theme['background']};
     border: none;
+  }
+
+  body {
+    background: ${(props): Color => props.theme['background']};
   }
 
   h1, h2, h3, h4, h5 {

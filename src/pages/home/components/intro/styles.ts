@@ -11,10 +11,6 @@ export const Container = styled.div`
 
   padding: 5.875rem 0;
 
-  * {
-    background: transparent;
-  }
-
   .title {
     display: flex;
     flex-direction: column;
