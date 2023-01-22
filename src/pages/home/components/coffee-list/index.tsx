@@ -1,4 +1,6 @@
 import { CoffeeType } from '../../../../shared/providers/coffee/@types/enums';
+import { coffees } from '../../../../shared/providers/coffee';
+import { CoffeeCard } from '../coffee-card';
 
 import { Container, FilterButton } from './styles';
 
@@ -19,6 +21,11 @@ export const CoffeeList = (): ReactElement => {
           <FilterButton>{CoffeeType.alcohol}</FilterButton>
           <FilterButton>{CoffeeType.cold}</FilterButton>
         </div>
+      </div>
+      <div className="list">
+        {coffees.map(coffee => (
+          <CoffeeCard coffee={coffee} key={coffee.title} />
+        ))}
       </div>
     </Container>
   );
