@@ -29,6 +29,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${(props): Color => props.theme['background']};
+    width: 1440px;
+    margin: auto;
   }
 
   h1, h2, h3, h4, h5 {
