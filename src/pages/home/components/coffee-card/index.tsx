@@ -1,12 +1,12 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
 
-import { Container } from './styles';
+import { CartFormComponent, Container } from './styles';
 
 import type { CoffeeProps } from './@types';
 import type { ReactElement } from '../../../../@types';
 
-// ---------------------------------------------------------------------------------------------- //
+// * ------------------------------------------------------------------------------------------ * //
 
 export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
   // *** ---- States ------------------------------------------------------------------------ *** //
@@ -32,7 +32,6 @@ export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
   return (
     <Container>
       <img src={coffee.imageUrl} alt="" />
-
       <div className="tags">
         {coffee.types.map(
           (type): ReactElement => (
@@ -40,30 +39,38 @@ export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
           )
         )}
       </div>
+      <div className="description">
+        <h3>{coffee.title}</h3>
 
-      <h3>{coffee.title}</h3>
+        <p>{coffee.description}</p>
+      </div>
 
-      <p>{coffee.description}</p>
+      <CartFormComponent>
+        <span>
+          {Intl.NumberFormat('pt-br', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(coffee.price)}
+        </span>
 
-      <span>{coffee.price}</span>
+        <div className="cart">
+          <div className="input">
+            <button onClick={() => handleSubtractFromCounter()} type="button">
+              <Minus weight="fill" />
+            </button>
 
-      <form action="">
-        <div className="input">
-          <button onClick={() => handleAddToCounter()} type="button">
-            <Plus />
-          </button>
+            <span>{counter}</span>
 
-          <span>{counter}</span>
+            <button onClick={() => handleAddToCounter()} type="button">
+              <Plus weight="fill" />
+            </button>
+          </div>
 
-          <button onClick={() => handleSubtractFromCounter()} type="button">
-            <Minus />
+          <button className="addToCartButton" type="button">
+            <ShoppingCart weight="fill" />
           </button>
         </div>
-
-        <button type="submit">
-          <ShoppingCart />
-        </button>
-      </form>
+      </CartFormComponent>
     </Container>
   );
 };
