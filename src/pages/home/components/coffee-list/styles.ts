@@ -39,6 +39,7 @@ export const Container = styled.div`
 // ---------------------------------------------------------------------------------------------- //
 
 export const FilterButton = styled.button<FilterButtonProps>`
+  border: solid ${(props): Color => props.theme['brand-secondary-2']} 1px;
   border-radius: 100px;
 
   background: ${(props): Background =>
