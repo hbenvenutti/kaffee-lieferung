@@ -5,7 +5,7 @@ import type { Color } from '../../../../@types/styles';
 
 // ---------------------------------------------------------------------------------------------- //
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   flex-direction: column;
 
