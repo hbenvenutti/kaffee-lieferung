@@ -38,7 +38,10 @@ export const Container = styled.header`
     padding: 0.5rem;
   }
 
-  button {
+  .checkout-link {
+    display: flex;
+    justify-content: center;
+
     color: ${(props): Color => props.theme['brand-secondary-3']};
     background-color: ${(props): Color => props.theme['brand-secondary-1']};
 

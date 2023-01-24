@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import logo from '../../../assets/logo.svg';
 
 import { CartSVG, Container, Counter, LocationSVG } from './styles';
@@ -11,13 +13,17 @@ export const Header = (): ReactElement => {
   // const [cartCounter, setCartCounter] = useState<number>(0);
 
   // *** ---- Variables --------------------------------------------------------------------- *** //
+
   const cartCounter = 2; // ? Temporary
   const showCartCounter = cartCounter > 0 ? true : false;
 
   // *** ---- TSX --------------------------------------------------------------------------- *** //
+
   return (
     <Container>
-      <img src={logo} alt="" />
+      <NavLink to="/">
+        <img src={logo} alt="" />
+      </NavLink>
 
       <div>
         <span>
@@ -26,9 +32,9 @@ export const Header = (): ReactElement => {
         </span>
 
         <div className="cart-div">
-          <button>
+          <NavLink className="checkout-link" to="/checkout">
             <CartSVG weight="fill" />
-          </button>
+          </NavLink>
 
           <Counter show={showCartCounter}>{cartCounter}</Counter>
         </div>
