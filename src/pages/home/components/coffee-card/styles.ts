@@ -20,6 +20,8 @@ export const Container = styled.div`
   // *** ---- Tags -------------------------------------------------------------------------- *** //
 
   img {
+    width: 7.5rem;
+    height: auto;
     margin-top: -2.5rem;
   }
 
