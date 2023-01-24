@@ -9,6 +9,6 @@ import type { ReactElement } from '../@types';
 export const DefaultLayout = (): ReactElement => (
   <>
     <Header />
-    <Outlet />;
+    <Outlet />
   </>
 );
