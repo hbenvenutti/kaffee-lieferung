@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import type { Color } from '../@types/styles';
 
-// ---------------------------------------------------------------------------------------------- //
+// * ------------------------------------------------------------------------------------------ * //
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -29,11 +29,12 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${(props): Color => props.theme['background']};
-    width: 1440px;
+    width: 100%;
+    max-width: 90rem;
     margin: auto;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3 {
     font-family: 'Baloo 2', sans-serif;
   }
 
