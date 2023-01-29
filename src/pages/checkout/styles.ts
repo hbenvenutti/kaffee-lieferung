@@ -36,6 +36,10 @@ export const Form = styled.form`
     padding: 2.5rem;
   }
 
+  .flexible-input {
+    flex: auto;
+  }
+
   .form-title {
     display: flex;
     gap: 0.5rem;
@@ -62,6 +66,10 @@ export const Form = styled.form`
       flex-direction: column;
       gap: 0.125rem;
     }
+  }
+
+  .inflexible-input {
+    width: 12.5rem;
   }
 
   .inputs {
@@ -92,18 +100,6 @@ export const Form = styled.form`
     gap: 0.75rem;
     flex-direction: column;
     width: 40rem;
-  }
-
-  #cep,
-  #neighborhood,
-  #number {
-    width: 200px;
-  }
-
-  #city,
-  #complement,
-  #street {
-    flex: auto;
   }
 
   #state {
