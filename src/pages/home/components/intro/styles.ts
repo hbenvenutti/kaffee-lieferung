@@ -66,8 +66,8 @@ export const Content = styled.div`
 
 export const List = styled.div`
   display: grid;
-  grid-gap: 20px 40px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.25rem 2.5rem;
+  grid-template-columns: 1fr 1.2fr;
 
   > div {
     display: flex;
@@ -88,7 +88,7 @@ const baseSpan = styled.span`
   height: 2rem;
 
   svg {
-    fill: ${(props): Color => props.theme['confirmation-button-text']};
+    fill: ${(props): Color => props.theme['confirmation_button_text']};
     width: 1rem;
     height: auto;
   }
@@ -97,7 +97,7 @@ const baseSpan = styled.span`
 // ---------------------------------------------------------------------------------------------- //
 
 export const CartSpan = styled(baseSpan)`
-  background: ${(props): Color => props.theme['brand-secondary-3']};
+  background: ${(props): Color => props.theme['secondary3']};
 `;
 
 // ---------------------------------------------------------------------------------------------- //
@@ -109,11 +109,11 @@ export const PackageSpan = styled(baseSpan)`
 // ---------------------------------------------------------------------------------------------- //
 
 export const TimerSpan = styled(baseSpan)`
-  background: ${(props): Color => props.theme['brand-secondary-2']};
+  background: ${(props): Color => props.theme['secondary2']};
 `;
 
 // ---------------------------------------------------------------------------------------------- //
 
 export const CoffeeSpan = styled(baseSpan)`
-  background: ${(props): Color => props.theme['brand-primary-2']};
+  background: ${(props): Color => props.theme['primary2']};
 `;

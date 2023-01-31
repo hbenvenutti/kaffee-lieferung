@@ -30,8 +30,8 @@ export const Container = styled.header`
     align-items: center;
     gap: 0.25rem;
 
-    color: ${(props): Color => props.theme['brand-primary-3']};
-    background-color: ${(props): Color => props.theme['brand-primary-1']};
+    color: ${(props): Color => props.theme['primary3']};
+    background-color: ${(props): Color => props.theme['primary1']};
 
     border-radius: 6px;
 
@@ -42,8 +42,8 @@ export const Container = styled.header`
     display: flex;
     justify-content: center;
 
-    color: ${(props): Color => props.theme['brand-secondary-3']};
-    background-color: ${(props): Color => props.theme['brand-secondary-1']};
+    color: ${(props): Color => props.theme['secondary3']};
+    background-color: ${(props): Color => props.theme['secondary1']};
 
     width: 2.375rem;
     height: 2.375rem;
@@ -55,7 +55,7 @@ export const Container = styled.header`
 // ---------------------------------------------------------------------------------------------- //
 
 export const LocationSVG = styled(MapPin)`
-  fill: ${(props): Color => props.theme['brand-primary-3']};
+  fill: ${(props): Color => props.theme['primary3']};
 
   width: 1.375rem;
   height: auto;
@@ -64,7 +64,7 @@ export const LocationSVG = styled(MapPin)`
 // ---------------------------------------------------------------------------------------------- //
 
 export const CartSVG = styled(ShoppingCart)`
-  fill: ${(props): Color => props.theme['brand-secondary-3']};
+  fill: ${(props): Color => props.theme['secondary3']};
 
   width: 1.375rem;
   height: auto;
@@ -79,8 +79,8 @@ export const Counter = styled.div<CounterProps>`
   justify-content: center;
   align-items: center;
 
-  background: ${(props): Color => props.theme['brand-secondary-3']};
-  color: ${(props): Color => props.theme['confirmation-button-text']};
+  background: ${(props): Color => props.theme['secondary3']};
+  color: ${(props): Color => props.theme['confirmation_button_text']};
 
   border-radius: 50px;
 

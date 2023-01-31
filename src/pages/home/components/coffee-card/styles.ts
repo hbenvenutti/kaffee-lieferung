@@ -55,8 +55,8 @@ export const Container = styled.div`
     span {
       border-radius: 100px;
 
-      background: ${(props): Color => props.theme['brand-secondary-1']};
-      color: ${(props): Color => props.theme['brand-secondary-3']};
+      background: ${(props): Color => props.theme['secondary1']};
+      color: ${(props): Color => props.theme['secondary3']};
 
       font-size: 0.625rem;
       font-weight: 700;
@@ -85,14 +85,14 @@ export const CartFormComponent = styled.div`
   // *** ---- classes ----------------------------------------------------------------------- *** //
 
   .addToCartButton {
-    background-color: ${(props): Color => props.theme['brand-primary-3']};
+    background-color: ${(props): Color => props.theme['primary3']};
     border-radius: 6px;
     padding: 0.5rem;
     width: 2.375rem;
     height: 2.375rem;
 
     svg {
-      fill: ${(props): Color => props.theme['confirmation-button-text']};
+      fill: ${(props): Color => props.theme['confirmation_button_text']};
       width: 1.375rem;
       height: auto;
     }
@@ -122,7 +122,7 @@ export const CartFormComponent = styled.div`
     }
 
     svg {
-      fill: ${(props): Color => props.theme['brand-primary-2']};
+      fill: ${(props): Color => props.theme['primary2']};
       width: 0.875rem;
       height: auto;
     }
