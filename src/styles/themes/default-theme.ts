@@ -9,14 +9,14 @@ export const defaultTheme = {
   input: '#EDEDED',
 
   button: '#E6E5E5',
-  'button-hover': '#D7D5D5',
-  'confirmation-button-text': '#FFF',
+  button_hover: '#D7D5D5',
+  confirmation_button_text: '#FFF',
 
-  'brand-primary-1': '#EBE5F9',
-  'brand-primary-2': '#8047F8',
-  'brand-primary-3': '#4B2995',
+  primary1: '#EBE5F9',
+  primary2: '#8047F8',
+  primary3: '#4B2995',
 
-  'brand-secondary-1': '#F1E9C9',
-  'brand-secondary-2': '#DBAC2C',
-  'brand-secondary-3': '#C47F17'
+  secondary1: '#F1E9C9',
+  secondary2: '#DBAC2C',
+  secondary3: '#C47F17'
 };
