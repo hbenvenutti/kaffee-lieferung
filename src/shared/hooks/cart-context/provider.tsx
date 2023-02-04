@@ -7,9 +7,11 @@ import {
   updateItemInCartAction
 } from './reducer/actions';
 import { PaymentMethod } from './enums';
+import { calculateItemTotalPrice } from './utils';
 
 import { CartContext } from '.';
 
+import type { Coffee } from '../../providers/coffee/@types';
 import type { ReactElement } from 'react';
 import type { Cart, CartItem, CartProviderProps } from './@types';
 
@@ -22,8 +24,6 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
   // -------------------------------------------------------------------------------------------- //
 
   const addItemToCart = (item: CartItem): void => {
-    item.total = item.price * item.quantity;
-
     dispatch(addItemToCartAction(item));
   };
 
@@ -64,8 +64,14 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
   };
 
   // *** --- Functions ---------------------------------------------------------------------- *** //
-  const handleItemAdditionToCart = (item: CartItem): void => {
-    const isItemInCart = cart.find(cartItem => cartItem.title === item.title);
+  const handleItemAdditionToCart = (coffee: Coffee, quantity: number): void => {
+    const isItemInCart = cart.find(cartItem => cartItem.title === coffee.title);
+
+    const item: CartItem = {
+      ...coffee,
+      quantity,
+      total: calculateItemTotalPrice(coffee, quantity)
+    };
 
     if (isItemInCart) return updateItemInCart(item);
 

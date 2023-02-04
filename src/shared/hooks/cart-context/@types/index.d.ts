@@ -18,7 +18,7 @@ interface CartContextData {
   method: PaymentMethod;
   total: number;
 
-  handleItemAdditionToCart: (item: CartItem) => void;
+  handleItemAdditionToCart: (coffee: Coffee, quantity: number) => void;
   handleItemRemovalFromCart: (item: CartItem) => void;
 
   setCity: (city: string) => void;
