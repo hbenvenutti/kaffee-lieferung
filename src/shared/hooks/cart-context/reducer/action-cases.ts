@@ -5,11 +5,7 @@ import type { Cart, CartItem } from '../@types';
 // * ------------------------------------------------------------------------------------------ * //
 
 const addToCartCase = (state: Cart, item: CartItem): Cart => {
-  return state.map(cartItem => {
-    if (cartItem.title === item.title) return item;
-
-    return cartItem;
-  });
+  return [...state, item];
 };
 
 // ---------------------------------------------------------------------------------------------- //
