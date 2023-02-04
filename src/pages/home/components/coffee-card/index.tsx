@@ -1,6 +1,8 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
 
+import { useCart } from '../../../../shared/hooks/cart-context';
+
 import { CartFormComponent, Container } from './styles';
 
 import type { CoffeeProps } from './@types';
@@ -9,12 +11,13 @@ import type { ReactElement } from '../../../../@types';
 // * ------------------------------------------------------------------------------------------ * //
 
 export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
-  // *** ---- States ------------------------------------------------------------------------ *** //
+  // *** --- Context ------------------------------------------------------------------------ *** //
+  const { handleItemAdditionToCart } = useCart();
 
+  // *** ---- States ------------------------------------------------------------------------ *** //
   const [counter, setCounter] = useState<number>(1);
 
-  // *** ---- Functions --------------------------------------------------------------------- *** //
-
+  // *** --- Functions --------------------------------------------------------------------- *** //
   const handleAddToCounter = (): void => {
     setCounter(state => state + 1);
   };
@@ -28,10 +31,13 @@ export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
   };
 
   // *** ---- TSX --------------------------------------------------------------------------- *** //
-
   return (
     <Container>
-      <img src={coffee.imageUrl} alt="" />
+      <img
+        src={coffee.imageUrl}
+        alt=""
+      />
+
       <div className="tags">
         {coffee.types.map(
           (type): ReactElement => (
@@ -39,6 +45,7 @@ export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
           )
         )}
       </div>
+
       <div className="description">
         <h3>{coffee.title}</h3>
 
@@ -55,18 +62,28 @@ export const CoffeeCard = ({ coffee }: CoffeeProps): ReactElement => {
 
         <div className="cart">
           <div className="input">
-            <button onClick={() => handleSubtractFromCounter()} type="button">
+            <button
+              onClick={() => handleSubtractFromCounter()}
+              type="button"
+            >
               <Minus weight="fill" />
             </button>
 
             <span>{counter}</span>
 
-            <button onClick={() => handleAddToCounter()} type="button">
+            <button
+              onClick={() => handleAddToCounter()}
+              type="button"
+            >
               <Plus weight="fill" />
             </button>
           </div>
 
-          <button className="addToCartButton" type="button">
+          <button
+            className="addToCartButton"
+            type="button"
+            onClick={() => handleItemAdditionToCart(coffee, counter)}
+          >
             <ShoppingCart weight="fill" />
           </button>
         </div>
