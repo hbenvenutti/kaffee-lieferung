@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import logo from '../../../assets/logo.svg';
+import { useCart } from '../../hooks/cart-context';
 
 import { CartSVG, Container, Counter, LocationSVG } from './styles';
 
@@ -9,20 +10,20 @@ import type { ReactElement } from '../../../@types';
 // ---------------------------------------------------------------------------------------------- //
 
 export const Header = (): ReactElement => {
-  // *** ---- States ------------------------------------------------------------------------ *** //
-  // const [cartCounter, setCartCounter] = useState<number>(0);
+  // *** ---- Context ----------------------------------------------------------------------- *** //
+  const { cartCounter } = useCart();
 
   // *** ---- Variables --------------------------------------------------------------------- *** //
-
-  const cartCounter = 2; // ? Temporary
   const showCartCounter = cartCounter > 0 ? true : false;
 
   // *** ---- TSX --------------------------------------------------------------------------- *** //
-
   return (
     <Container>
       <NavLink to="/">
-        <img src={logo} alt="" />
+        <img
+          src={logo}
+          alt=""
+        />
       </NavLink>
 
       <div>
@@ -32,7 +33,10 @@ export const Header = (): ReactElement => {
         </span>
 
         <div className="cart-div">
-          <NavLink className="checkout-link" to="/checkout">
+          <NavLink
+            className="checkout-link"
+            to="/checkout"
+          >
             <CartSVG weight="fill" />
           </NavLink>
 
