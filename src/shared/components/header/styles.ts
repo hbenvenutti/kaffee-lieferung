@@ -7,6 +7,15 @@ import type { Color } from '../../../@types/styles';
 // ---------------------------------------------------------------------------------------------- //
 
 export const Container = styled.header`
+  position: fixed;
+
+  background: ${(props): Color => props.theme['background']};
+
+  width: 100%;
+  max-width: 90rem;
+  margin: auto;
+
+  z-index: 3;
   display: flex;
   justify-content: space-between;
 
