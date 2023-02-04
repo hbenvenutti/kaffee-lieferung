@@ -1,6 +1,6 @@
 import { useEffect, useReducer, useState } from 'react';
 
-import { itemsReducer } from './reducer';
+import { cartItemsReducer } from './reducer';
 import {
   addItemToCartAction,
   removeItemFromCartAction,
@@ -10,14 +10,14 @@ import { PaymentMethod } from './enums';
 
 import { CartContext } from '.';
 
-import type { ReactElement, ReactNode } from 'react';
-import type { Cart, CartItem } from './@types';
+import type { ReactElement } from 'react';
+import type { Cart, CartItem, CartProviderProps } from './@types';
 
 // * ------------------------------------------------------------------------------------------ * //
 
-export const CartProvider = (children: ReactNode): ReactElement => {
+export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
   // *** --- Reducers ----------------------------------------------------------------------- *** //
-  const [items, dispatch] = useReducer(itemsReducer, [] as Cart);
+  const [cart, dispatch] = useReducer(cartItemsReducer, [] as Cart);
 
   // -------------------------------------------------------------------------------------------- //
 
@@ -42,6 +42,7 @@ export const CartProvider = (children: ReactNode): ReactElement => {
   // *** --- States ------------------------------------------------------------------------- *** //
   const [method, setMethod] = useState<PaymentMethod>(PaymentMethod.money);
   const [total, setTotal] = useState<number>(0);
+  const [cartCounter, setCartCounter] = useState<number>(2);
 
   const [city, setCity] = useState<string>('');
   const [complement, setComplement] = useState<string>('');
@@ -64,7 +65,7 @@ export const CartProvider = (children: ReactNode): ReactElement => {
 
   // *** --- Functions ---------------------------------------------------------------------- *** //
   const handleItemAdditionToCart = (item: CartItem): void => {
-    const isItemInCart = items.find(cartItem => cartItem.title === item.title);
+    const isItemInCart = cart.find(cartItem => cartItem.title === item.title);
 
     if (isItemInCart) return updateItemInCart(item);
 
@@ -79,16 +80,19 @@ export const CartProvider = (children: ReactNode): ReactElement => {
 
   // *** --- Effects ------------------------------------------------------------------------ *** //
   useEffect(() => {
-    const total = items.reduce((sum, item) => sum + item.total, 0);
+    const total = cart.reduce((sum, item) => sum + item.total, 0);
+
+    setCartCounter(cart.length);
     setTotal(total);
-  }, [items]);
+  }, [cart]);
 
   // *** --- TSX ---------------------------------------------------------------------------- *** //
   return (
     <CartContext.Provider
       value={{
         address,
-        items,
+        cart,
+        cartCounter,
         method,
         total,
 

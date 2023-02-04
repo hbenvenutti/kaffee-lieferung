@@ -1,5 +1,5 @@
 import type { Coffee } from '../../../providers/coffee/@types';
-import type { PaymentMethod } from '../enums';
+import type { ActionTypes, PaymentMethod } from '../enums';
 
 // * ------------------------------------------------------------------------------------------ * //
 
@@ -13,9 +13,10 @@ interface CartContextData {
     city: string;
     state: string;
   };
+  cart: Cart;
+  cartCounter: number;
   method: PaymentMethod;
   total: number;
-  items: CartItem[];
 
   handleItemAdditionToCart: (item: CartItem) => void;
   handleItemRemovalFromCart: (item: CartItem) => void;
@@ -33,6 +34,12 @@ interface CartContextData {
 
 // ---------------------------------------------------------------------------------------------- //
 
+interface CartProviderProps {
+  children: ReactNode;
+}
+
+// ---------------------------------------------------------------------------------------------- //
+
 interface CartItem extends Coffee {
   quantity: number;
   total: number;
@@ -45,7 +52,7 @@ type Cart = CartItem[];
 // ---------------------------------------------------------------------------------------------- //
 
 interface Action {
-  type: string;
+  type: ActionTypes;
   payload: {
     item: CartItem;
   };
