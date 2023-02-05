@@ -16,5 +16,9 @@ export const Container = styled.main`
   }
 
   .column-right {
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: column;
+    width: 28rem;
   }
 `;
