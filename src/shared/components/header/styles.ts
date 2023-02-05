@@ -8,10 +8,12 @@ import type { Color } from '../../../@types/styles';
 
 export const Container = styled.header`
   position: fixed;
+  top: 0;
 
   background: ${(props): Color => props.theme['background']};
 
   width: 100%;
+  height: 6.75rem;
   max-width: 90rem;
   margin: auto;
 

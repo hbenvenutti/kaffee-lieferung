@@ -9,6 +9,8 @@ import type { Color } from '../../../../@types/styles';
 export const Container = styled.div`
   display: grid;
 
+  margin-top: 6.75rem;
+
   padding: 5.875rem 0;
 
   .title {
