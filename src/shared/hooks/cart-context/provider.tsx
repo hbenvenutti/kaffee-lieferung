@@ -80,6 +80,17 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
 
   // -------------------------------------------------------------------------------------------- //
 
+  const handleChangeQuantityOfItem = (item: CartItem, quantity: number): void => {
+    if (quantity < 1) return;
+
+    item.quantity = quantity;
+    item.total = calculateItemTotalPrice(item, quantity);
+
+    updateItemInCart(item);
+  };
+
+  // -------------------------------------------------------------------------------------------- //
+
   const handleItemRemovalFromCart = (item: CartItem): void => {
     removeItemFromCart(item);
   };
@@ -112,7 +123,8 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
         setMethod,
 
         handleItemAdditionToCart,
-        handleItemRemovalFromCart
+        handleItemRemovalFromCart,
+        handleChangeQuantityOfItem
       }}
     >
       {children}
