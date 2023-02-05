@@ -11,11 +11,7 @@ const addToCartCase = (state: Cart, item: CartItem): Cart => {
 // ---------------------------------------------------------------------------------------------- //
 
 const removeFromCartCase = (state: Cart, item: CartItem): Cart => {
-  const index = state.findIndex(cartItem => cartItem.title === item.title);
-
-  if (index < 0) return state;
-
-  return state.splice(index, 1);
+  return state.filter(cartItem => cartItem.title !== item.title);
 };
 
 // ---------------------------------------------------------------------------------------------- //
