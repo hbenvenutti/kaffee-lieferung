@@ -42,7 +42,7 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
   // *** --- States ------------------------------------------------------------------------- *** //
   const [method, setMethod] = useState<PaymentMethod>(PaymentMethod.money);
   const [total, setTotal] = useState<number>(0);
-  const [cartCounter, setCartCounter] = useState<number>(2);
+  const [cartCounter, setCartCounter] = useState<number>(0);
 
   const [city, setCity] = useState<string>('');
   const [complement, setComplement] = useState<string>('');
