@@ -20,6 +20,7 @@ interface CartContextData {
 
   handleItemAdditionToCart: (coffee: Coffee, quantity: number) => void;
   handleItemRemovalFromCart: (item: CartItem) => void;
+  handleChangeQuantityOfItem: (item: CartItem, quantity: number) => void;
 
   setCity: (city: string) => void;
   setComplement: (complement: string) => void;
