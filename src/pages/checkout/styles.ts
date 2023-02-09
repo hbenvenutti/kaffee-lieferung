@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export const Container = styled.main`
   display: flex;
   gap: 2rem;
-  margin-top: 6.75rem;
   padding: 2rem 10rem;
 
   .column-left {

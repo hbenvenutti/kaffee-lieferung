@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/home';
 import { DefaultLayout } from './layouts/default-layout';
 import { Checkout } from './pages/checkout';
+import { SuccessPage } from './pages/success';
 
 import type { ReactElement } from './@types';
 
@@ -22,7 +23,10 @@ export const Router = (): ReactElement => (
         path="/checkout"
         element={<Checkout />}
       />
-      <Route path="/done" />
+      <Route
+        path="/done"
+        element={<SuccessPage />}
+      />
     </Route>
   </Routes>
 );

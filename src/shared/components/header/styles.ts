@@ -7,7 +7,7 @@ import type { Color } from '../../../@types/styles';
 // ---------------------------------------------------------------------------------------------- //
 
 export const Container = styled.header`
-  position: fixed;
+  position: sticky;
   top: 0;
 
   background: ${(props): Color => props.theme['background']};
