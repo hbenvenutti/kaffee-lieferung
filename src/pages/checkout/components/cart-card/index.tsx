@@ -13,12 +13,15 @@ import type { ReactElement } from 'react';
 
 export const CartCard = (): ReactElement => {
   // *** --- Contexts ----------------------------------------------------------------------- *** //
-  const { cart, total, deliveryPrice, finalPrice, handleEmptyCart } = useCart();
+  const { cart, total, deliveryPrice, finalPrice, handleEmptyCart, address } = useCart();
   const navigate = useNavigate();
 
   // *** --- Variables ---------------------------------------------------------------------- *** //
+  const { street, number, neighborhood, city, state } = address;
   const isCartEmpty = cart.length === 0;
   const page = '/done';
+
+  const isButtonDisabled = isCartEmpty || !street || !number || !neighborhood || !city || !state;
 
   // *** --- Functions ---------------------------------------------------------------------- *** //
   const handleSubmit = (): void => {
@@ -59,7 +62,7 @@ export const CartCard = (): ReactElement => {
       </div>
 
       <button
-        disabled={isCartEmpty}
+        disabled={isButtonDisabled}
         onClick={handleSubmit}
       >
         CONFIRMAR PEDIDO
