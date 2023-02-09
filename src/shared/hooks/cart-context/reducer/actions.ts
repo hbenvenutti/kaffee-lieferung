@@ -34,3 +34,11 @@ export const removeItemFromCartAction = (item: CartItem): Action => {
     }
   };
 };
+
+// ---------------------------------------------------------------------------------------------- //
+
+export const emptyCartAction = (): Action => {
+  return {
+    type: ActionTypes.EMPTY_CART
+  };
+};

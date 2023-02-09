@@ -7,7 +7,7 @@ interface CartContextData {
   address: {
     street: string;
     postalCode: string;
-    number: number;
+    number: string;
     complement: string;
     neighborhood: string;
     city: string;
@@ -17,15 +17,18 @@ interface CartContextData {
   cartCounter: number;
   method: PaymentMethod;
   total: number;
+  deliveryPrice: number;
+  finalPrice: number;
 
   handleItemAdditionToCart: (coffee: Coffee, quantity: number) => void;
   handleItemRemovalFromCart: (item: CartItem) => void;
   handleChangeQuantityOfItem: (item: CartItem, quantity: number) => void;
+  handleEmptyCart: () => void;
 
   setCity: (city: string) => void;
   setComplement: (complement: string) => void;
   setNeighborhood: (neighborhood: string) => void;
-  setNumber: (number: number) => void;
+  setNumber: (number: string) => void;
   setPostalCode: (postalCode: string) => void;
   setState: (state: string) => void;
   setStreet: (street: string) => void;
@@ -54,7 +57,7 @@ type Cart = CartItem[];
 
 interface Action {
   type: ActionTypes;
-  payload: {
+  payload?: {
     item: CartItem;
   };
 }

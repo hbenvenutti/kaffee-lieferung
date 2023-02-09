@@ -11,10 +11,12 @@ import type { ReactElement } from '../../../@types';
 
 export const Header = (): ReactElement => {
   // *** ---- Context ----------------------------------------------------------------------- *** //
-  const { cartCounter } = useCart();
+  const { cartCounter, address } = useCart();
 
   // *** ---- Variables --------------------------------------------------------------------- *** //
   const showCartCounter = cartCounter > 0 ? true : false;
+
+  const { city, state } = address;
 
   // *** ---- TSX --------------------------------------------------------------------------- *** //
   return (
@@ -29,7 +31,7 @@ export const Header = (): ReactElement => {
       <div>
         <span>
           <LocationSVG weight="fill" />
-          Porto Alegre, RS
+          {city || 'Porto Alegre'}, {state || 'RS'}
         </span>
 
         <div className="cart-div">

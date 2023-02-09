@@ -31,7 +31,21 @@ export const Container = styled.div`
 
   .buttons-container {
     display: flex;
+    gap: 0.5rem;
     justify-content: space-between;
+
+    > button {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      border-radius: 6px;
+      padding: 0.5rem;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
   }
 
   .counter-button {

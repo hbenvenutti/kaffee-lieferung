@@ -1,4 +1,5 @@
 import { Minus, Plus, Trash } from 'phosphor-react';
+import { useTheme } from 'styled-components';
 
 import { formatPrice } from '../../../../shared/utils/format-price';
 import { useCart } from '../../../../shared/hooks/cart-context';
@@ -15,6 +16,7 @@ export const CartItem = ({ item, ..._props }: CartItemProps): ReactElement => {
   const { title, imageUrl, quantity, total } = item;
 
   // *** --- Contexts ----------------------------------------------------------------------- *** //
+  const { primary2 } = useTheme();
   const { handleChangeQuantityOfItem, handleItemRemovalFromCart } = useCart();
 
   // *** --- Functions ---------------------------------------------------------------------- *** //
@@ -61,7 +63,7 @@ export const CartItem = ({ item, ..._props }: CartItemProps): ReactElement => {
             </div>
 
             <button onClick={() => handleItemRemovalFromCart(item)}>
-              <Trash />
+              <Trash color={primary2} />
               REMOVER
             </button>
           </div>

@@ -3,6 +3,7 @@ import { useEffect, useReducer, useState } from 'react';
 import { cartItemsReducer } from './reducer';
 import {
   addItemToCartAction,
+  emptyCartAction,
   removeItemFromCartAction,
   updateItemInCartAction
 } from './reducer/actions';
@@ -39,20 +40,29 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
     dispatch(removeItemFromCartAction(item));
   };
 
+  // -------------------------------------------------------------------------------------------- //
+
+  const emptyCart = (): void => {
+    dispatch(emptyCartAction());
+  };
+
   // *** --- States ------------------------------------------------------------------------- *** //
   const [method, setMethod] = useState<PaymentMethod>(PaymentMethod.money);
   const [total, setTotal] = useState<number>(0);
   const [cartCounter, setCartCounter] = useState<number>(0);
+  const [finalPrice, setFinalPrice] = useState<number>(0);
 
   const [city, setCity] = useState<string>('');
   const [complement, setComplement] = useState<string>('');
   const [neighborhood, setNeighborhood] = useState<string>('');
-  const [number, setNumber] = useState<number>(0);
+  const [number, setNumber] = useState<string>('');
   const [postalCode, setPostalCode] = useState<string>('');
   const [state, setState] = useState<string>('');
   const [street, setStreet] = useState<string>('');
 
   // *** --- Variables ---------------------------------------------------------------------- *** //
+  const deliveryPrice = 3.5;
+
   const address = {
     city,
     complement,
@@ -95,6 +105,12 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
     removeItemFromCart(item);
   };
 
+  // -------------------------------------------------------------------------------------------- //
+
+  const handleEmptyCart = (): void => {
+    emptyCart();
+  };
+
   // *** --- Effects ------------------------------------------------------------------------ *** //
   useEffect(() => {
     const total = cart.reduce((sum, item) => sum + item.total, 0);
@@ -102,6 +118,12 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
     setCartCounter(cart.length);
     setTotal(total);
   }, [cart]);
+
+  useEffect(() => {
+    const finalPrice = total === 0 ? 0 : total + deliveryPrice;
+
+    setFinalPrice(finalPrice);
+  }, [total]);
 
   // *** --- TSX ---------------------------------------------------------------------------- *** //
   return (
@@ -112,6 +134,8 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
         cartCounter,
         method,
         total,
+        finalPrice,
+        deliveryPrice,
 
         setCity,
         setComplement,
@@ -124,7 +148,8 @@ export const CartProvider = ({ children }: CartProviderProps): ReactElement => {
 
         handleItemAdditionToCart,
         handleItemRemovalFromCart,
-        handleChangeQuantityOfItem
+        handleChangeQuantityOfItem,
+        handleEmptyCart
       }}
     >
       {children}

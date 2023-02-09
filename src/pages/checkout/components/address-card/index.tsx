@@ -1,15 +1,51 @@
 import { useTheme } from 'styled-components';
 import { MapPinLine } from 'phosphor-react';
 
+import { useCart } from '../../../../shared/hooks/cart-context';
+import { AddressInput } from '../../../../shared/hooks/cart-context/enums';
+
 import { Container } from './styles';
 
-import type { ReactElement } from 'react';
+import type { ChangeEvent, ReactElement } from 'react';
 
 // * ------------------------------------------------------------------------------------------ * //
 
 export const AddressCard = (): ReactElement => {
+  // *** --- Contexts ----------------------------------------------------------------------- *** //
   const { secondary3 } = useTheme();
+  const {
+    address,
+    setCity,
+    setComplement,
+    setNeighborhood,
+    setNumber,
+    setState,
+    setStreet,
+    setPostalCode
+  } = useCart();
 
+  // *** --- Dictionaries ------------------------------------------------------------------- *** //
+  const setFunctions = {
+    [AddressInput.CITY]: setCity,
+    [AddressInput.COMPLEMENT]: setComplement,
+    [AddressInput.NEIGHBORHOOD]: setNeighborhood,
+    [AddressInput.NUMBER]: setNumber,
+    [AddressInput.STATE]: setState,
+    [AddressInput.STREET]: setStreet,
+    [AddressInput.POSTAL_CODE]: setPostalCode
+  };
+
+  // *** --- Functions ---------------------------------------------------------------------- *** //
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>, input: AddressInput): void => {
+    const { value } = event.target;
+
+    setFunctions[input](value);
+  };
+
+  // *** --- Variables ---------------------------------------------------------------------- *** //
+  const { city, complement, neighborhood, number, postalCode, state, street } = address;
+
+  // *** --- TSX ---------------------------------------------------------------------------- *** //
   return (
     <Container>
       <div className="form-title">
@@ -33,6 +69,8 @@ export const AddressCard = (): ReactElement => {
           name="cep"
           id="cep"
           placeholder="CEP"
+          value={postalCode}
+          onChange={event => onInputChange(event, AddressInput.POSTAL_CODE)}
         />
 
         {/* ------------------------------------------------------------------------------ */}
@@ -43,6 +81,8 @@ export const AddressCard = (): ReactElement => {
           name="street"
           id="street"
           placeholder="Rua"
+          value={street}
+          onChange={event => onInputChange(event, AddressInput.STREET)}
         />
 
         {/* ------------------------------------------------------------------------------ */}
@@ -54,6 +94,8 @@ export const AddressCard = (): ReactElement => {
             name="number"
             id="number"
             placeholder="Número"
+            value={number}
+            onChange={event => onInputChange(event, AddressInput.NUMBER)}
           />
 
           <input
@@ -62,6 +104,8 @@ export const AddressCard = (): ReactElement => {
             name="complement"
             id="complement"
             placeholder="Complemento"
+            value={complement}
+            onChange={event => onInputChange(event, AddressInput.COMPLEMENT)}
           />
 
           <span>Opcional</span>
@@ -75,6 +119,8 @@ export const AddressCard = (): ReactElement => {
             name="neighborhood"
             id="neighborhood"
             placeholder="Bairro"
+            value={neighborhood}
+            onChange={event => onInputChange(event, AddressInput.NEIGHBORHOOD)}
           />
 
           {/* ---------------------------------------------------------------------------- */}
@@ -85,6 +131,8 @@ export const AddressCard = (): ReactElement => {
             name="city"
             id="city"
             placeholder="Cidade"
+            value={city}
+            onChange={event => onInputChange(event, AddressInput.CITY)}
           />
 
           {/* ---------------------------------------------------------------------------- */}
@@ -94,6 +142,8 @@ export const AddressCard = (): ReactElement => {
             name="state"
             id="state"
             placeholder="UF"
+            value={state}
+            onChange={event => onInputChange(event, AddressInput.STATE)}
           />
         </div>
         {/* ---- End - input-row --------------------------------------------------------- */}

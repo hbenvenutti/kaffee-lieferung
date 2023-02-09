@@ -24,10 +24,15 @@ const updateItemInCartCase = (state: Cart, item: CartItem): Cart => {
   });
 };
 
+const emptyCart = (_state: Cart): Cart => {
+  return [];
+};
+
 // * ------------------------------------------------------------------------------------------ * //
 
 export const actionCases = {
   [ActionTypes.ADD_ITEM_TO_CART]: addToCartCase,
   [ActionTypes.REMOVE_ITEM_FROM_CART]: removeFromCartCase,
-  [ActionTypes.UPDATE_ITEM_IN_CART]: updateItemInCartCase
+  [ActionTypes.UPDATE_ITEM_IN_CART]: updateItemInCartCase,
+  [ActionTypes.EMPTY_CART]: emptyCart
 };

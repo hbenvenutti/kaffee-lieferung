@@ -20,5 +20,29 @@ export const Container = styled(cardBase)`
     padding: 0.75rem 0.5rem;
     border-radius: 6px;
     font-weight: 700;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  strong {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .total-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 `;
